@@ -29,7 +29,7 @@
             {_id:6, lastName:"Anders", firstName:"Fidy"},
             {_id:7, lastName:"Zandry", firstName:"Gasy"},
         ]
-        
+
         var tabs = [];
         for(var i=0; i < data.length; i++){
             tabs.push(data[i].lastName);
@@ -54,7 +54,7 @@
         for(var i= 0; i < _rowItem.length; i++){
             var trItem = document.createElement("tr");
             var dataItem=_rowItem[i];
-            console.log(data);
+            console.log(dataItem);
                 for(var j=0; j < dataItem.length; j++){
                     var td_item = document.createElement("td");
                     td_item.innerHTML=dataItem[j];	
