@@ -1,11 +1,14 @@
 <!DOCTYPE html>
+<!--Mampi first commit-->
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>affichage</title>
 </head>
+
 <body>
     <div style="width:100%">
         <table border="1" style="text-align:center; margin:0 auto; width:50%">
@@ -15,53 +18,77 @@
                 <th>FirstName</th>
             </thead>
             <tbody id="table">
-            <tbody>
+                <tbody>
         </table>
     </div>
     <script>
-        var data = [
-            {_id:1, lastName:"Zansen", firstName:"Bary"},
-            {_id:2, lastName:"Naika", firstName:"Setph"},
-            {_id:3, lastName:"Marry", firstName:"Jane"},
-            {_id:4, lastName:"Jeo", firstName:"Pierre"},
-            {_id:4, lastName:"Fangen", firstName:"Ave"},
-            {_id:5, lastName:"Cara", firstName:"Sam"},
-            {_id:6, lastName:"Anders", firstName:"Fidy"},
-            {_id:7, lastName:"Zandry", firstName:"Gasy"},
-        ]
+        var data = [{
+            _id: 1,
+            lastName: "Zansen",
+            firstName: "Bary"
+        }, {
+            _id: 2,
+            lastName: "Naika",
+            firstName: "Setph"
+        }, {
+            _id: 3,
+            lastName: "Marry",
+            firstName: "Jane"
+        }, {
+            _id: 4,
+            lastName: "Jeo",
+            firstName: "Pierre"
+        }, {
+            _id: 4,
+            lastName: "Fangen",
+            firstName: "Ave"
+        }, {
+            _id: 5,
+            lastName: "Cara",
+            firstName: "Sam"
+        }, {
+            _id: 6,
+            lastName: "Anders",
+            firstName: "Fidy"
+        }, {
+            _id: 7,
+            lastName: "Zandry",
+            firstName: "Gasy"
+        }, ]
 
         var tabs = [];
-        for(var i=0; i < data.length; i++){
+        for (var i = 0; i < data.length; i++) {
             tabs.push(data[i].lastName);
         }
         tabs = tabs.sort();
-        
+
         var _rowItem = new Array();
-        for(var i=0; i<tabs.length; i++){
+        for (var i = 0; i < tabs.length; i++) {
             _rowItem[i] = new Array();
-            for(var j=0; j<data.length; j++){
-                if(tabs[i] === data[j].lastName){
+            for (var j = 0; j < data.length; j++) {
+                if (tabs[i] === data[j].lastName) {
                     // console.log(data[j].lastName);
                     // console.log(data[j].firstName);
-                    _rowItem[i][0] = i+1;
+                    _rowItem[i][0] = i + 1;
                     _rowItem[i][1] = data[j].lastName;
                     _rowItem[i][2] = data[j].firstName;
                 }
-            }   
+            }
         }
 
         var tbody = document.getElementById('table');
-        for(var i= 0; i < _rowItem.length; i++){
+        for (var i = 0; i < _rowItem.length; i++) {
             var trItem = document.createElement("tr");
-            var dataItem=_rowItem[i];
+            var dataItem = _rowItem[i];
             console.log(dataItem);
-                for(var j=0; j < dataItem.length; j++){
-                    var td_item = document.createElement("td");
-                    td_item.innerHTML=dataItem[j];	
-                    trItem.appendChild(td_item );
-                }
+            for (var j = 0; j < dataItem.length; j++) {
+                var td_item = document.createElement("td");
+                td_item.innerHTML = dataItem[j];
+                trItem.appendChild(td_item);
+            }
             tbody.appendChild(trItem);
         }
     </script>
 </body>
+
 </html>
