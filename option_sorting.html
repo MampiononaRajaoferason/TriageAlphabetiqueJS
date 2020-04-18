@@ -38,11 +38,22 @@
 
     ]
 
-    <p id="demo"></p>
-    <button onclick="sort_ascending()">Asc</button>
-    <button onclick="sort_descending()">Desc</button>
 
-    <div id='table-container'>
+
+
+
+
+    <div>
+
+        <form>
+            Choice
+            <select id="mySelect" onchange="myFunction()">
+                <option></option>
+            
+                <option value = "asc" id="A-Z">A-Z</option>
+                <option value = "desc" id="Z-A">Z-A</option>
+            </select>
+        </form>
         <table style="text-align: center; margin: 0 auto; width: 50%">
             <thead>
                 <th>Id</th>
@@ -55,6 +66,8 @@
 
         </table>
 
+
+        <p id="demo"></p>
     </div>
 
     <script>
@@ -113,51 +126,16 @@
             return res
         }
 
-
-        function sort_ascending() {
-            // body...
-            var output = sorting_ascendingly_on(myArr, 'lastName')
-
-            text = "<table>";
-            var len = output.length;
-
-            for (let i = 0; i < len; i++) {
-                output[i].id = i + 1;
-            }
-
-
-            var array_to_display = [];
-            for (let i = 0; i < len; i++) {
-                array_to_display.push(output[i]);
-            }
-
+        //---Function for onchange---//
+        function myFunction() {
             var tableBody = document.getElementById('table');
+            var x = document.getElementById("mySelect").value;
 
-
-            var text = "<tr>";
-            var len = output.length;
-            for (let i = 0; i < len; i++) {
-
-                text += "<td>" + output[i].id + "</td>";
-
-                text += "<td>" + output[i].firstName + "</td>";
-
-                text += "<td>" + output[i].lastName + "</td>";
-
-
-                text += "</tr>";
-
+            if (x === "asc") {
+                var output = sorting_ascendingly_on(myArr, 'lastName');
+            } else if (x === 'desc') {
+                var output = sorting_descendingly_on(myArr, 'lastName')
             }
-
-
-            document.getElementById('table').innerHTML = text;
-
-        }
-
-
-        function sort_descending() {
-            // body...
-            var output = sorting_descendingly_on(myArr, 'lastName')
 
             text = "<table>";
             var len = output.length;
